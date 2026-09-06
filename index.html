@@ -24,56 +24,149 @@ body{
     font-family:Arial,sans-serif;
 
     background:
-    radial-gradient(circle at top left,#8b5e3c 0%,transparent 35%),
-    radial-gradient(circle at bottom right,#d69a9a 0%,transparent 40%),
-    linear-gradient(135deg,#241712,#4b3023,#ead4c4);
+    radial-gradient(circle at 10% 10%, #8b5e3c 0%, transparent 30%),
+    radial-gradient(circle at 90% 20%, #d98fa8 0%, transparent 28%),
+    radial-gradient(circle at 50% 100%, #6d4a9e 0%, transparent 35%),
+    linear-gradient(135deg,#211512,#43281f,#5a3b68);
 
     color:white;
     overflow:hidden;
 }
 
 
-/* ================= MAIN CARD ================= */
+/* ================= MOVING FLAG ================= */
+
+.flag{
+    position:fixed;
+
+    top:22px;
+    right:25px;
+
+    width:145px;
+    height:48px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:8px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #6f4935,
+        #b86f88,
+        #74539b
+    );
+
+    border:1px solid rgba(255,255,255,.25);
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,.35);
+
+    color:#fff5f2;
+
+    font-size:15px;
+    font-weight:bold;
+    letter-spacing:2px;
+
+    transform-origin:left center;
+
+    animation:flagMove 2.2s ease-in-out infinite;
+
+    z-index:50;
+}
+
+.flag::before{
+    content:"";
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:7px;
+    height:100%;
+
+    background:#f4d6c8;
+
+    border-radius:8px 0 0 8px;
+}
+
+@keyframes flagMove{
+
+    0%,100%{
+        transform:
+        perspective(400px)
+        rotateY(0deg)
+        rotateZ(0deg);
+    }
+
+    50%{
+        transform:
+        perspective(400px)
+        rotateY(-14deg)
+        rotateZ(2deg);
+    }
+
+}
+
+
+/* ================= CARD ================= */
 
 .container{
     width:100%;
-    max-width:560px;
+    max-width:570px;
+
     min-height:500px;
 
     padding:35px 24px;
 
-    border-radius:32px;
+    border-radius:34px;
 
-    background:rgba(48,30,22,.90);
+    background:
+    linear-gradient(
+        145deg,
+        rgba(55,34,25,.94),
+        rgba(55,30,42,.94),
+        rgba(39,28,52,.94)
+    );
 
-    border:1px solid rgba(255,220,200,.25);
+    border:1px solid rgba(245,190,205,.25);
 
     box-shadow:
-    0 20px 60px rgba(0,0,0,.35),
-    inset 0 0 40px rgba(255,255,255,.03);
+    0 25px 70px rgba(0,0,0,.40),
+    0 0 50px rgba(185,100,150,.10);
 
-    backdrop-filter:blur(10px);
+    backdrop-filter:blur(12px);
 
     position:relative;
 }
 
+
+/* ================= TOP LINE ================= */
+
 .top-line{
-    width:85px;
-    height:4px;
+    width:100px;
+    height:5px;
 
     margin:0 auto 30px;
 
     border-radius:20px;
 
-    background:linear-gradient(
+    background:
+    linear-gradient(
         90deg,
-        #d6a77a,
-        #e8a7a7
+        #b87950,
+        #e69ab0,
+        #9270c0
     );
+
+    box-shadow:
+    0 0 15px rgba(220,140,180,.25);
 }
 
 
-/* ================= PAGES ================= */
+/* ================= PAGE ================= */
 
 .page{
     display:none;
@@ -90,7 +183,7 @@ body{
 
     from{
         opacity:0;
-        transform:translateY(25px) scale(.97);
+        transform:translateY(25px) scale(.96);
     }
 
     to{
@@ -101,21 +194,36 @@ body{
 }
 
 
+/* ================= TEXT ================= */
+
 h1{
     font-size:36px;
     margin-bottom:12px;
-    color:#ffe9dc;
+
+    background:
+    linear-gradient(
+        90deg,
+        #f0c8a9,
+        #f0a7bc,
+        #c0a2ed
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
 h2{
     font-size:30px;
     margin-bottom:15px;
-    color:#ffe1d1;
+
+    color:#f6d8cf;
 }
 
 .subtitle{
-    color:#cdb8ad;
+    color:#cbb8b4;
+
     font-size:15px;
+
     margin-bottom:30px;
 }
 
@@ -123,31 +231,34 @@ h2{
 /* ================= QUESTION ================= */
 
 .question{
-    padding:30px 20px;
+    padding:32px 20px;
 
-    border-radius:25px;
+    border-radius:27px;
 
     background:
     linear-gradient(
         145deg,
-        rgba(130,85,55,.35),
-        rgba(180,105,105,.20)
+        rgba(139,94,60,.32),
+        rgba(216,143,168,.18),
+        rgba(109,74,158,.18)
     );
 
-    border:1px solid rgba(255,220,200,.18);
+    border:1px solid rgba(255,220,230,.17);
 
     box-shadow:
     inset 0 0 30px rgba(255,255,255,.025);
 }
 
 .question p{
-    font-size:24px;
+    font-size:25px;
+
     line-height:1.6;
-    color:#fff1e9;
+
+    color:#fff0ea;
 }
 
 .question strong{
-    color:#f3b4b4;
+    color:#f1a9bd;
 }
 
 
@@ -155,14 +266,17 @@ h2{
 
 .buttons{
     display:flex;
+
     justify-content:center;
     align-items:center;
+
     gap:18px;
 
     margin-top:30px;
 
     position:relative;
-    min-height:60px;
+
+    min-height:65px;
 }
 
 
@@ -176,52 +290,63 @@ h2{
     border-radius:30px;
 
     font-size:17px;
+
     font-weight:bold;
 
     color:white;
 
     cursor:pointer;
 
+    -webkit-tap-highlight-color:transparent;
+
     transition:
     transform .25s ease,
     left .25s ease,
     top .25s ease;
-
-    -webkit-tap-highlight-color:transparent;
 }
 
 
+/* ================= YES ================= */
+
 .yes{
-    background:linear-gradient(
+    background:
+    linear-gradient(
         135deg,
-        #9b5f4a,
-        #d88989
+        #a9684b,
+        #d9869d,
+        #8c68b3
     );
 
     box-shadow:
-    0 8px 25px rgba(210,130,130,.25);
+    0 8px 28px rgba(205,125,155,.28);
 }
 
 .yes:hover{
-    transform:translateY(-3px) scale(1.04);
+    transform:
+    translateY(-4px)
+    scale(1.05);
 }
 
 
-/* ================= NO BUTTON ================= */
+/* ================= NO ================= */
 
 .no{
-    background:linear-gradient(
+    background:
+    linear-gradient(
         135deg,
-        #513329,
-        #754638
+        #4b3026,
+        #704457,
+        #493967
     );
 
     box-shadow:
-    0 8px 25px rgba(0,0,0,.25);
+    0 8px 25px rgba(0,0,0,.30);
 
     position:relative;
 
     z-index:10;
+
+    user-select:none;
 }
 
 
@@ -230,25 +355,27 @@ h2{
 .message{
     padding:28px 20px;
 
-    border-radius:25px;
+    border-radius:27px;
 
     background:
     linear-gradient(
         145deg,
-        rgba(139,94,60,.30),
-        rgba(200,130,130,.18)
+        rgba(139,94,60,.28),
+        rgba(216,143,168,.17),
+        rgba(109,74,158,.17)
     );
 
-    border:1px solid rgba(255,220,200,.18);
+    border:1px solid rgba(255,220,230,.17);
 
     font-size:18px;
+
     line-height:1.8;
 
-    color:#f5e7df;
+    color:#f5e8e2;
 }
 
 .message strong{
-    color:#f0b4b4;
+    color:#f1aabd;
 }
 
 
@@ -257,7 +384,7 @@ h2{
 .previous{
     background:#302019;
 
-    border:1px solid #725344;
+    border:1px solid #785666;
 }
 
 .previous:hover{
@@ -265,9 +392,9 @@ h2{
 }
 
 
-/* ================= FLOATING HEARTS ================= */
+/* ================= FLOATING EMOJIS ================= */
 
-.heart{
+.float{
     position:fixed;
 
     bottom:-40px;
@@ -310,9 +437,23 @@ h2{
 
 @media(max-width:500px){
 
+    .flag{
+        top:12px;
+        right:12px;
+
+        width:125px;
+        height:42px;
+
+        font-size:12px;
+        letter-spacing:1.5px;
+    }
+
     .container{
         min-height:490px;
+
         padding:30px 17px;
+
+        margin-top:25px;
     }
 
     h1{
@@ -333,6 +474,7 @@ h2{
 
     .btn{
         min-width:110px;
+
         padding:13px 18px;
     }
 
@@ -345,12 +487,19 @@ h2{
 <body>
 
 
+<!-- ================= MOVING FLAG ================= -->
+
+<div class="flag">
+    ✦ OFC SHANZAY ✦
+</div>
+
+
 <div class="container">
 
 <div class="top-line"></div>
 
 
-<!-- ================= PAGE 1 ================= -->
+<!-- ================= FIRST PAGE ================= -->
 
 <section class="page active" id="page1">
 
@@ -372,18 +521,28 @@ Do you <strong>love me?</strong> 🥹🤎
 
 <div class="buttons" id="buttonArea">
 
+
+<!-- ONLY YES OPENS NEXT PAGE -->
+
 <button
 class="btn yes"
 onclick="showPage('yesPage')">
+
 YES ❤️
+
 </button>
 
+
+<!-- NO NEVER OPENS ANY PAGE -->
 
 <button
 class="btn no"
 id="noBtn">
+
 NO 😭
+
 </button>
+
 
 </div>
 
@@ -414,14 +573,17 @@ Love you mujhe kehne ke liye 🥹🤎
 
 <br><br>
 
-Mujhe batane ke liye
+Mujhe batane ke liye,
 aur mujhe itna special feel karwane ke liye
 aapka bohat bohat shukriaaa. 🥹🌸
 
 <br><br>
 
 Honestly...
-<strong>Thank you so much! 🤎</strong>
+
+<strong>
+Thank you so much! 🤎🩷💜
+</strong>
 
 </div>
 
@@ -431,7 +593,9 @@ Honestly...
 <button
 class="btn previous"
 onclick="showPage('page1')">
+
 Previous
+
 </button>
 
 </div>
@@ -463,7 +627,7 @@ function showPage(pageId){
 }
 
 
-/* ================= NO BUTTON ================= */
+/* ================= CRAZY NO ================= */
 
 const noBtn =
 document.getElementById("noBtn");
@@ -472,7 +636,7 @@ const buttonArea =
 document.getElementById("buttonArea");
 
 
-function moveNo(){
+function moveNoButton(){
 
     const areaWidth =
         buttonArea.clientWidth;
@@ -480,67 +644,62 @@ function moveNo(){
     const areaHeight =
         buttonArea.clientHeight;
 
-
-    const btnWidth =
+    const buttonWidth =
         noBtn.offsetWidth;
 
-    const btnHeight =
+    const buttonHeight =
         noBtn.offsetHeight;
 
 
     /*
-       Button ko area ke andar hi
-       random jagah par move karenge.
+       Safe random movement.
+       NO sirf apni jagah change karega.
     */
 
     const maxX =
         Math.max(
-            20,
-            (areaWidth - btnWidth) / 2
+            25,
+            (areaWidth - buttonWidth) / 2
         );
 
 
-    const maxY = 80;
+    const maxY = 85;
 
 
-    const randomX =
+    const x =
         (Math.random() * 2 - 1) * maxX;
 
 
-    const randomY =
+    const y =
         (Math.random() * 2 - 1) * maxY;
 
 
     noBtn.style.transform =
-        `translate(${randomX}px, ${randomY}px)`;
+        `translate(${x}px, ${y}px)`;
 
 }
 
 
 /*
-   PC mouse:
-   NO par mouse le jayenge
-   to button move karega.
+   PC:
+   Mouse NO ke paas jayega
+   to NO move karega.
 */
 
 noBtn.addEventListener(
     "pointerenter",
     function(){
 
-        moveNo();
+        moveNoButton();
 
     }
 );
 
 
 /*
-   Mobile:
-   NO ko touch/press karte hi
-   button move karega.
-
-   IMPORTANT:
-   preventDefault() ki wajah se
-   NO ka click execute nahi hoga.
+   MOBILE + PC:
+   NO press/touch karne par
+   sirf move hoga.
 */
 
 noBtn.addEventListener(
@@ -549,15 +708,20 @@ noBtn.addEventListener(
 
         event.preventDefault();
 
-        moveNo();
+        event.stopPropagation();
+
+        moveNoButton();
 
     }
 );
 
 
 /*
-   Extra safety:
-   NO button ka click kuch bhi nahi karega.
+   IMPORTANT:
+   NO ka koi page navigation nahi hai.
+
+   Isliye NO par click hone ki
+   situation mein bhi kuch open nahi hoga.
 */
 
 noBtn.addEventListener(
@@ -566,33 +730,36 @@ noBtn.addEventListener(
 
         event.preventDefault();
 
-        moveNo();
+        event.stopPropagation();
+
+        moveNoButton();
 
     }
 );
 
 
-/* ================= FLOATING HEARTS ================= */
+/* ================= FLOATING EMOJIS ================= */
 
-function createHeart(){
+function createFloat(){
 
-    const heart =
+    const item =
         document.createElement("div");
 
-    heart.className="heart";
+    item.className="float";
 
 
     const emojis=[
         "🤎",
+        "🩷",
+        "🎀",
         "🌸",
         "🥹",
         "✨",
-        "🤍",
-        "💗"
+        "🤍"
     ];
 
 
-    heart.innerHTML =
+    item.innerHTML =
         emojis[
             Math.floor(
                 Math.random()*emojis.length
@@ -600,27 +767,27 @@ function createHeart(){
         ];
 
 
-    heart.style.left =
+    item.style.left =
         Math.random()*100+"vw";
 
 
-    heart.style.animationDuration =
+    item.style.animationDuration =
         (5+Math.random()*4)+"s";
 
 
-    document.body.appendChild(heart);
+    document.body.appendChild(item);
 
 
     setTimeout(function(){
 
-        heart.remove();
+        item.remove();
 
     },9000);
 
 }
 
 
-setInterval(createHeart,900);
+setInterval(createFloat,850);
 
 
 </script>
