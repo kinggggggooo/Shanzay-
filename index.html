@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>For Shanzay 🤎</title>
+<title>For Shanzay 🤌🏻💖</title>
 
 <style>
 
@@ -490,7 +490,7 @@ h2{
 <!-- ================= MOVING FLAG ================= -->
 
 <div class="flag">
-    ✦ OFC SHANZAY ✦
+    ✦ FC SHANZAY ✦
 </div>
 
 
@@ -504,7 +504,7 @@ h2{
 <section class="page active" id="page1">
 
 <h1>
-Hi Shanzayyyy 🥹🤎
+Hi Shanzay 🥹🤎
 </h1>
 
 <div class="subtitle">
@@ -522,11 +522,11 @@ Do you <strong>love me?</strong> 🥹🤎
 <div class="buttons" id="buttonArea">
 
 
-<!-- ONLY YES OPENS NEXT PAGE -->
+<!-- YES OPENS NEXT PAGE + SENDS TELEGRAM NOTIFICATION -->
 
 <button
 class="btn yes"
-onclick="showPage('yesPage')">
+onclick="yesAnswer()">
 
 YES ❤️
 
@@ -627,6 +627,42 @@ function showPage(pageId){
 }
 
 
+/* ================= YES + TELEGRAM ================= */
+
+async function yesAnswer(){
+
+    // YES page immediately open hoga
+    showPage("yesPage");
+
+    // Telegram ko notification bhejna
+    try{
+
+        await fetch(
+            "https://hussnainyes.niamatali781163.workers.dev",
+            {
+                method:"POST",
+
+                headers:{
+                    "Content-Type":"application/json"
+                },
+
+                body:JSON.stringify({
+                    action:"yes"
+                })
+            }
+        );
+
+    }catch(error){
+
+        console.log(
+            "Telegram notification failed"
+        );
+
+    }
+
+}
+
+
 /* ================= CRAZY NO ================= */
 
 const noBtn =
@@ -650,11 +686,6 @@ function moveNoButton(){
     const buttonHeight =
         noBtn.offsetHeight;
 
-
-    /*
-       Safe random movement.
-       NO sirf apni jagah change karega.
-    */
 
     const maxX =
         Math.max(
@@ -680,11 +711,7 @@ function moveNoButton(){
 }
 
 
-/*
-   PC:
-   Mouse NO ke paas jayega
-   to NO move karega.
-*/
+/* PC */
 
 noBtn.addEventListener(
     "pointerenter",
@@ -696,11 +723,7 @@ noBtn.addEventListener(
 );
 
 
-/*
-   MOBILE + PC:
-   NO press/touch karne par
-   sirf move hoga.
-*/
+/* MOBILE + PC */
 
 noBtn.addEventListener(
     "pointerdown",
@@ -716,13 +739,7 @@ noBtn.addEventListener(
 );
 
 
-/*
-   IMPORTANT:
-   NO ka koi page navigation nahi hai.
-
-   Isliye NO par click hone ki
-   situation mein bhi kuch open nahi hoga.
-*/
+/* NO par kabhi page open nahi hoga */
 
 noBtn.addEventListener(
     "click",
@@ -751,10 +768,10 @@ function createFloat(){
     const emojis=[
         "🤎",
         "🩷",
-        "🎀",
+        "💜",
         "🌸",
         "🥹",
-        "✨",
+        "😭",
         "🤍"
     ];
 
@@ -793,4 +810,4 @@ setInterval(createFloat,850);
 </script>
 
 </body>
-</html>
+    </html>
