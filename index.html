@@ -7,6 +7,7 @@
 <title>For Shanzay 🤎</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -20,45 +21,19 @@ body{
     justify-content:center;
     padding:20px;
 
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
 
     background:
-        radial-gradient(circle at top left,#8b5e3c 0%,transparent 35%),
-        radial-gradient(circle at bottom right,#c98f8f 0%,transparent 38%),
-        linear-gradient(135deg,#2b1b14,#4a3024,#ead5c5);
+    radial-gradient(circle at top left,#8b5e3c 0%,transparent 35%),
+    radial-gradient(circle at bottom right,#d69a9a 0%,transparent 40%),
+    linear-gradient(135deg,#241712,#4b3023,#ead4c4);
 
-    color:#fff;
+    color:white;
     overflow:hidden;
 }
 
-/* Cute floating hearts */
 
-.heart{
-    position:fixed;
-    bottom:-40px;
-    pointer-events:none;
-    animation:floatUp 7s linear forwards;
-    opacity:.7;
-    font-size:22px;
-}
-
-@keyframes floatUp{
-    0%{
-        transform:translateY(0) rotate(0);
-        opacity:0;
-    }
-
-    20%{
-        opacity:.7;
-    }
-
-    100%{
-        transform:translateY(-110vh) rotate(360deg);
-        opacity:0;
-    }
-}
-
-/* Main Card */
+/* ================= MAIN CARD ================= */
 
 .container{
     width:100%;
@@ -69,21 +44,18 @@ body{
 
     border-radius:32px;
 
-    background:rgba(48,30,22,.88);
+    background:rgba(48,30,22,.90);
 
     border:1px solid rgba(255,220,200,.25);
 
     box-shadow:
-        0 20px 60px rgba(0,0,0,.35),
-        inset 0 0 40px rgba(255,255,255,.03);
-
-    position:relative;
-    overflow:hidden;
+    0 20px 60px rgba(0,0,0,.35),
+    inset 0 0 40px rgba(255,255,255,.03);
 
     backdrop-filter:blur(10px);
-}
 
-/* Top decoration */
+    position:relative;
+}
 
 .top-line{
     width:85px;
@@ -100,7 +72,8 @@ body{
     );
 }
 
-/* Pages */
+
+/* ================= PAGES ================= */
 
 .page{
     display:none;
@@ -109,10 +82,12 @@ body{
 
 .page.active{
     display:block;
+
     animation:pageIn .6s ease;
 }
 
 @keyframes pageIn{
+
     from{
         opacity:0;
         transform:translateY(25px) scale(.97);
@@ -122,7 +97,9 @@ body{
         opacity:1;
         transform:translateY(0) scale(1);
     }
+
 }
+
 
 h1{
     font-size:36px;
@@ -142,22 +119,25 @@ h2{
     margin-bottom:30px;
 }
 
+
+/* ================= QUESTION ================= */
+
 .question{
     padding:30px 20px;
 
     border-radius:25px;
 
     background:
-        linear-gradient(
-            145deg,
-            rgba(130,85,55,.35),
-            rgba(180,105,105,.20)
-        );
+    linear-gradient(
+        145deg,
+        rgba(130,85,55,.35),
+        rgba(180,105,105,.20)
+    );
 
     border:1px solid rgba(255,220,200,.18);
 
     box-shadow:
-        inset 0 0 30px rgba(255,255,255,.025);
+    inset 0 0 30px rgba(255,255,255,.025);
 }
 
 .question p{
@@ -170,18 +150,25 @@ h2{
     color:#f3b4b4;
 }
 
-/* Buttons */
+
+/* ================= BUTTON AREA ================= */
 
 .buttons{
     display:flex;
     justify-content:center;
     align-items:center;
-    gap:16px;
+    gap:18px;
+
     margin-top:30px;
+
+    position:relative;
+    min-height:60px;
 }
+
 
 .btn{
     border:none;
+
     min-width:125px;
 
     padding:14px 25px;
@@ -195,14 +182,14 @@ h2{
 
     cursor:pointer;
 
-    transition:.25s;
+    transition:
+    transform .25s ease,
+    left .25s ease,
+    top .25s ease;
 
     -webkit-tap-highlight-color:transparent;
 }
 
-.btn:active{
-    transform:scale(.95);
-}
 
 .yes{
     background:linear-gradient(
@@ -212,12 +199,15 @@ h2{
     );
 
     box-shadow:
-        0 8px 25px rgba(210,130,130,.25);
+    0 8px 25px rgba(210,130,130,.25);
 }
 
 .yes:hover{
     transform:translateY(-3px) scale(1.04);
 }
+
+
+/* ================= NO BUTTON ================= */
 
 .no{
     background:linear-gradient(
@@ -227,23 +217,15 @@ h2{
     );
 
     box-shadow:
-        0 8px 25px rgba(0,0,0,.25);
+    0 8px 25px rgba(0,0,0,.25);
 
     position:relative;
+
+    z-index:10;
 }
 
-/* Previous */
 
-.previous{
-    background:#302019;
-    border:1px solid #725344;
-}
-
-.previous:hover{
-    transform:translateY(-3px);
-}
-
-/* Message */
+/* ================= MESSAGE ================= */
 
 .message{
     padding:28px 20px;
@@ -251,11 +233,11 @@ h2{
     border-radius:25px;
 
     background:
-        linear-gradient(
-            145deg,
-            rgba(139,94,60,.30),
-            rgba(200,130,130,.18)
-        );
+    linear-gradient(
+        145deg,
+        rgba(139,94,60,.30),
+        rgba(200,130,130,.18)
+    );
 
     border:1px solid rgba(255,220,200,.18);
 
@@ -269,15 +251,62 @@ h2{
     color:#f0b4b4;
 }
 
-/* Sorry page */
 
-.sorry{
-    margin-top:20px;
-    font-size:14px;
-    color:#bda99e;
+/* ================= PREVIOUS ================= */
+
+.previous{
+    background:#302019;
+
+    border:1px solid #725344;
 }
 
-/* Mobile */
+.previous:hover{
+    transform:translateY(-3px);
+}
+
+
+/* ================= FLOATING HEARTS ================= */
+
+.heart{
+    position:fixed;
+
+    bottom:-40px;
+
+    pointer-events:none;
+
+    animation:floatUp 7s linear forwards;
+
+    opacity:.7;
+
+    font-size:22px;
+}
+
+@keyframes floatUp{
+
+    0%{
+        transform:
+        translateY(0)
+        rotate(0);
+
+        opacity:0;
+    }
+
+    20%{
+        opacity:.7;
+    }
+
+    100%{
+        transform:
+        translateY(-110vh)
+        rotate(360deg);
+
+        opacity:0;
+    }
+
+}
+
+
+/* ================= MOBILE ================= */
 
 @media(max-width:500px){
 
@@ -306,144 +335,116 @@ h2{
         min-width:110px;
         padding:13px 18px;
     }
+
 }
+
 </style>
 </head>
 
+
 <body>
+
 
 <div class="container">
 
-    <div class="top-line"></div>
+<div class="top-line"></div>
 
 
-    <!-- ================= PAGE 1 ================= -->
+<!-- ================= PAGE 1 ================= -->
 
-    <section class="page active" id="page1">
+<section class="page active" id="page1">
 
-        <h1>
-            Hi Shanzayyyy 🥹🤎
-        </h1>
+<h1>
+Hi Shanzayyyy 🥹🤎
+</h1>
 
-        <div class="subtitle">
-            Niche ek chota sa sawal hai... 👀
-        </div>
-
-        <div class="question">
-
-            <p>
-                Do you <strong>love me?</strong> 🥹🤎
-            </p>
-
-            <div class="buttons">
-
-                <button
-                    class="btn yes"
-                    onclick="showPage('yesPage')">
-                    YES ❤️
-                </button>
-
-                <button
-                    class="btn no"
-                    id="noBtn">
-                    NO 😭
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
+<div class="subtitle">
+Niche ek chota sa sawal hai... 👀
+</div>
 
 
-    <!-- ================= YES PAGE ================= -->
+<div class="question">
 
-    <section class="page" id="yesPage">
-
-        <h2>
-            Shukriaaa 🥹🤎
-        </h2>
-
-        <div class="subtitle">
-            Finally jawab mil hi gaya 😂
-        </div>
-
-        <div class="message">
-
-            <strong>
-                Thank you so muchhh Shanzayyyy! 🥹🤎
-            </strong>
-
-            <br><br>
-
-            Aapne YES press kar diya,
-            ab smile to banti hai na? 😂🌸
-
-            <br><br>
-
-            Bas itna hi poochna tha...
-            baqi aap khud samajhdaar hain. 👀🤎
-
-        </div>
-
-        <div class="buttons">
-
-            <button
-                class="btn previous"
-                onclick="showPage('page1')">
-                Previous
-            </button>
-
-        </div>
-
-    </section>
+<p>
+Do you <strong>love me?</strong> 🥹🤎
+</p>
 
 
-    <!-- ================= NO PAGE ================= -->
+<div class="buttons" id="buttonArea">
 
-    <section class="page" id="noPage">
+<button
+class="btn yes"
+onclick="showPage('yesPage')">
+YES ❤️
+</button>
 
-        <h2>
-            Oh... 😭🤎
-        </h2>
 
-        <div class="subtitle">
-            Lagta hai NO kehna zaroori tha 😂
-        </div>
+<button
+class="btn no"
+id="noBtn">
+NO 😭
+</button>
 
-        <div class="message">
+</div>
 
-            Agar aapko <strong>NO press karne</strong>
-            mein koi problem hui ho...
+</div>
 
-            <br><br>
+</section>
 
-            to uske liye
-            <strong>mazarat! 🥹😂</strong>
 
-            <br><br>
 
-            Mera maqsad aapko pareshan karna nahi tha.
-            Bas thora sa cute sa prank tha. 🤎🌸
+<!-- ================= YES PAGE ================= -->
 
-        </div>
+<section class="page" id="yesPage">
 
-        <div class="buttons">
+<h2>
+Shukriaaa 🥹🤎
+</h2>
 
-            <button
-                class="btn previous"
-                onclick="showPage('page1')">
-                Previous
-            </button>
+<div class="subtitle">
+Aapne YES keh diya... 🥹🌸
+</div>
 
-        </div>
 
-    </section>
+<div class="message">
+
+<strong>
+Love you mujhe kehne ke liye 🥹🤎
+</strong>
+
+<br><br>
+
+Mujhe batane ke liye
+aur mujhe itna special feel karwane ke liye
+aapka bohat bohat shukriaaa. 🥹🌸
+
+<br><br>
+
+Honestly...
+<strong>Thank you so much! 🤎</strong>
 
 </div>
 
 
+<div class="buttons">
+
+<button
+class="btn previous"
+onclick="showPage('page1')">
+Previous
+</button>
+
+</div>
+
+</section>
+
+
+</div>
+
+
+
 <script>
+
 
 /* ================= PAGE SYSTEM ================= */
 
@@ -451,61 +452,96 @@ function showPage(pageId){
 
     document.querySelectorAll(".page")
     .forEach(function(page){
+
         page.classList.remove("active");
+
     });
 
     document.getElementById(pageId)
-        .classList.add("active");
+    .classList.add("active");
+
 }
 
 
-/* ================= NO BUTTON PRANK ================= */
+/* ================= NO BUTTON ================= */
 
-const noBtn = document.getElementById("noBtn");
+const noBtn =
+document.getElementById("noBtn");
+
+const buttonArea =
+document.getElementById("buttonArea");
 
 
-function moveNoButton(){
+function moveNo(){
 
-    const container =
-        document.querySelector(".container");
+    const areaWidth =
+        buttonArea.clientWidth;
 
-    const buttonWidth = noBtn.offsetWidth;
-    const buttonHeight = noBtn.offsetHeight;
+    const areaHeight =
+        buttonArea.clientHeight;
+
+
+    const btnWidth =
+        noBtn.offsetWidth;
+
+    const btnHeight =
+        noBtn.offsetHeight;
+
+
+    /*
+       Button ko area ke andar hi
+       random jagah par move karenge.
+    */
 
     const maxX =
         Math.max(
             20,
-            container.clientWidth - buttonWidth - 40
+            (areaWidth - btnWidth) / 2
         );
 
-    const maxY = 150;
+
+    const maxY = 80;
+
 
     const randomX =
-        Math.random() * maxX - maxX / 2;
+        (Math.random() * 2 - 1) * maxX;
+
 
     const randomY =
-        Math.random() * maxY - maxY / 2;
+        (Math.random() * 2 - 1) * maxY;
+
 
     noBtn.style.transform =
         `translate(${randomX}px, ${randomY}px)`;
+
 }
 
 
 /*
-   PC:
-   Mouse button ke paas jaye to NO bhaagega.
-
-   Mobile:
-   Finger/touch karne ki koshish par
-   NO button move ho jayega.
+   PC mouse:
+   NO par mouse le jayenge
+   to button move karega.
 */
 
 noBtn.addEventListener(
     "pointerenter",
     function(){
-        moveNoButton();
+
+        moveNo();
+
     }
 );
+
+
+/*
+   Mobile:
+   NO ko touch/press karte hi
+   button move karega.
+
+   IMPORTANT:
+   preventDefault() ki wajah se
+   NO ka click execute nahi hoga.
+*/
 
 noBtn.addEventListener(
     "pointerdown",
@@ -513,22 +549,24 @@ noBtn.addEventListener(
 
         event.preventDefault();
 
-        moveNoButton();
+        moveNo();
 
     }
 );
 
 
 /*
-   Agar kisi device par NO actually click
-   ho jaye to sorry page show hoga.
+   Extra safety:
+   NO button ka click kuch bhi nahi karega.
 */
 
 noBtn.addEventListener(
     "click",
-    function(){
+    function(event){
 
-        showPage("noPage");
+        event.preventDefault();
+
+        moveNo();
 
     }
 );
@@ -541,9 +579,10 @@ function createHeart(){
     const heart =
         document.createElement("div");
 
-    heart.className = "heart";
+    heart.className="heart";
 
-    const emojis = [
+
+    const emojis=[
         "🤎",
         "🌸",
         "🥹",
@@ -552,30 +591,39 @@ function createHeart(){
         "💗"
     ];
 
+
     heart.innerHTML =
         emojis[
             Math.floor(
-                Math.random() * emojis.length
+                Math.random()*emojis.length
             )
         ];
 
+
     heart.style.left =
-        Math.random() * 100 + "vw";
+        Math.random()*100+"vw";
+
 
     heart.style.animationDuration =
-        (5 + Math.random() * 4) + "s";
+        (5+Math.random()*4)+"s";
+
 
     document.body.appendChild(heart);
 
+
     setTimeout(function(){
+
         heart.remove();
+
     },9000);
+
 }
 
 
 setInterval(createHeart,900);
 
+
 </script>
 
 </body>
-  </html>
+</html>
